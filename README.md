@@ -1,9 +1,7 @@
 # template-goose
 
 <p align="center" width="100%">
-  <!--  
-  <img width="33%" src="https://github.com/staleks/template-goose/blob/30bd702f947667ad8aaf5041cbbd49c8b905d451/documentation/images/repository-logo.jpg"/>
-  -->
+  <img width="33%" src="https://github.com/staleks/template-goose/blob/d895564a9cfe1aa68577f87b97724474ebf12c48/documentation/images/repository-logo.jpg"/>
 </p>
 
 
