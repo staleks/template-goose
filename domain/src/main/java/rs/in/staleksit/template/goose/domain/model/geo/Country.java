@@ -1,4 +1,4 @@
-package rs.in.staleksit.template.goose.domain.model;
+package rs.in.staleksit.template.goose.domain.model.geo;
 
 import lombok.Getter;
 import lombok.Setter;

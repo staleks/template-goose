@@ -26,18 +26,18 @@ subprojects {
 
 	dependencies {
 		// import BOM
-		implementation platform("org.springframework.boot:spring-boot-dependencies:3.3.0")
-		implementation platform("org.springframework.boot:spring-boot-starter-parent:3.3.0")
+		implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+		implementation platform("org.springframework.boot:spring-boot-starter-parent:${springBootVersion}")
 
 		// lombok
-		compileOnly "org.projectlombok:lombok:1.18.32"
-		annotationProcessor "org.projectlombok:lombok:1.18.32"
+		compileOnly "org.projectlombok:lombok:${lombokVersion}"
+		annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
 		implementation 'org.springframework:spring-context'
 		implementation 'io.micrometer:micrometer-registry-prometheus'
 
-		testImplementation("org.projectlombok:lombok:1.18.32")
-		testAnnotationProcessor("org.projectlombok:lombok:1.18.32")
+		testImplementation("org.projectlombok:lombok:${lombokVersion}")
+		testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
 
 		// testing
 		testImplementation 'org.springframework:spring-test'
@@ -75,4 +75,3 @@ task build {
 		dependsOn "${it.path}:build"
 	}
 }
-
