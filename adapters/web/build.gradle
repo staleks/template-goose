@@ -1,0 +1,23 @@
+plugins {
+    id 'java-library'
+}
+
+configurations {
+    implementation.exclude module: 'spring-boot-starter-tomcat'
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':service')
+
+    //~ Spring
+    implementation 'org.springframework:spring-context'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    implementation 'org.springframework.boot:spring-boot-starter-undertow'
+    implementation "io.undertow:undertow-core:${undertowVersion}"
+    implementation "io.undertow:undertow-core:${undertowVersion}"
+
+}

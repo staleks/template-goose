@@ -3,4 +3,8 @@ rootProject.name = 'template-goose'
 include 'domain'
 include 'testdata'
 include 'service'
+include 'adapters:persistence'
+include 'adapters:web'
+include 'app'
+
 
