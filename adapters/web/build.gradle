@@ -13,8 +13,8 @@ dependencies {
     //~ Spring
     implementation 'org.springframework:spring-context'
 
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    api 'org.springframework.boot:spring-boot-starter-web'
+    api 'org.springframework.boot:spring-boot-starter-actuator'
 
     implementation 'org.springframework.boot:spring-boot-starter-undertow'
     implementation "io.undertow:undertow-core:${undertowVersion}"
