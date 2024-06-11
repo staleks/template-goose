@@ -5,5 +5,7 @@ plugins {
 dependencies {
     implementation project(':domain')
 
-    implementation "com.github.javafaker:javafaker:${javaFakerVersion}"
+    implementation ("com.github.javafaker:javafaker:${javaFakerVersion}") {
+        exclude module: 'snakeyaml'
+    }
 }

@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-docker-plugin:${gradleDockerPluginVersion}"
+    }
+}
+
+apply plugin: com.bmuschko.gradle.docker.DockerRemoteApiPlugin
+
+import com.bmuschko.gradle.docker.tasks.DockerInfo
+import com.bmuschko.gradle.docker.tasks.DockerVersion
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+
+ext {
+    latestTag = "latest"
+    buildImageName = "staleks/${rootProject.name}"
+}
+
+task dockerInfo(type: DockerInfo) {}
+
+task dockerVersion(type: DockerVersion) {}
+
+task buildImage(type: DockerBuildImage) {
+    description = "Build docker image"
+    inputDir = project.file(".")
+    images.add("${buildImageName}:${latestTag}")
+}

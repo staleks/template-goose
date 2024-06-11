@@ -1,5 +1,7 @@
 apply plugin: 'org.springframework.boot'
 
+apply from: "${rootProject.projectDir}/gradle/docker.gradle"
+
 repositories {
     mavenCentral()
     maven { url 'https://repo.spring.io/milestone' }
