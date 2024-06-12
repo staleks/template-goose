@@ -1,0 +1,26 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "${jacocoPluginVersion}"
+    reportsDirectory.set(layout.buildDirectory.dir("reports"))
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        xml.destination file("${buildDir}/reports/jacoco/report.xml")
+        html.setRequired(true)
+        html.setOutputLocation layout.buildDirectory.dir("reports/jacocoHtml")
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            enabled = false
+            limit {
+                minimum = 0.7
+            }
+        }
+    }
+}

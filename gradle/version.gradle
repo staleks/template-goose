@@ -1,0 +1,15 @@
+release {
+    versionPropertyFile = 'version.properties'
+    git {
+        requireBranch.set('main')
+    }
+}
+
+task loadVersionProps() {
+    file("${rootProject.projectDir}/version.properties").withInputStream {
+        stream ->
+            def props = new Properties()
+            props.load(stream)
+            props.each { key, val -> project.setProperty(key, val) }
+    }
+}
