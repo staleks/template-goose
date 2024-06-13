@@ -10,11 +10,14 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import rs.in.staleksit.template.goose.domain.model.geo.Country;
+import rs.in.staleksit.template.goose.service.paging.PagingRequest;
+import rs.in.staleksit.template.goose.service.paging.PagingResponse;
 
 import java.util.Collections;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -43,12 +46,13 @@ class CountryServiceImplTest {
     @Test
     void testFindAll_noResults() {
         //~ given
-        when(countryPersistencePort.findAll()).thenReturn(Collections.emptySet());
+        PagingResponse<Country> countryPagingResponse = new PagingResponse<>(Collections.emptyList(), 0, 0, 0, 0);
+        when(countryPersistencePort.findAll(isA(PagingRequest.class))).thenReturn(countryPagingResponse);
         //~ when
-        Set<Country> result = countryService.findAll();
+        PagingResponse<Country> result = countryService.findAll(PagingRequest.of(0, 10, "name"));
         //~  then
-        assertTrue(result.isEmpty());
-        verify(countryPersistencePort).findAll();
+        assertTrue(result.getItems().isEmpty());
+        verify(countryPersistencePort).findAll(isA(PagingRequest.class));
     }
 
 }

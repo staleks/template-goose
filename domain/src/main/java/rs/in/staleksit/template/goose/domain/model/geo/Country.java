@@ -27,7 +27,7 @@ public class Country {
 
     private boolean deleted;
 
-    protected Country() {
+    public Country() {
         this.visible = true;
         this.deleted = false;
     }
