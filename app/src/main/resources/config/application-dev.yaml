@@ -1,0 +1,10 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+
+  datasource:
+    url: jdbc:mysql://localhost:20057/template_goose_db?allowPublicKeyRetrieval=true&useSSL=false&nullNamePatternMatchesAll=true&maxReconnects=10&autoReconnect=true&characterEncoding=UTF-8
+    username: root
+    password: root
