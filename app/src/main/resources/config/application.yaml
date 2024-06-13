@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:20057/template_goose_db?useSSL=false&nullNamePatternMatchesAll=true&maxReconnects=10&autoReconnect=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:20057/template_goose_db?allowPublicKeyRetrieval=true&useSSL=false&nullNamePatternMatchesAll=true&maxReconnects=10&autoReconnect=true&characterEncoding=UTF-8
     username: root
     password: root
     testWhileIdle: true
@@ -21,11 +21,6 @@ spring:
     open-in-view: false
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-      # https://github.com/spring-projects/spring-data-jpa/issues/2717
-      jakarta:
-        persistence:
-          sharedCache:
-            mode: ENABLE_SELECTIVE
+        dialect: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: validate

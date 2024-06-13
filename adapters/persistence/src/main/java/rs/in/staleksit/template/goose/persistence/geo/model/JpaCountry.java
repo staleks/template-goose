@@ -24,7 +24,7 @@ public class JpaCountry extends AbstractAuditingEntity<Long> implements Serializ
     private static final long serialVersionUID = -4398802976318185828L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Getter
