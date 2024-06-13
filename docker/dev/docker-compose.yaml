@@ -1,0 +1,20 @@
+services:
+  template-goose-db:
+    container_name: template-goose-db
+    image: mysql:8.4.0
+    ### command: ['mysqld', '--character-set-server=utf8', '--collation-server=utf8_unicode_ci']
+    ports:
+      - 20057:3306
+    volumes:
+      - "template-goose-db-data:/var/lib/mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=template_goose_db
+    healthcheck:
+      test: [ 'CMD', 'mysqladmin', '-usequelize_test', '-psequelize_test', 'status' ]
+      interval: 3s
+      timeout: 1s
+      retries: 10
+
+volumes:
+  template-goose-db-data:
