@@ -24,8 +24,7 @@ public class JpaCountry extends AbstractAuditingEntity<Long> implements Serializ
     private static final long serialVersionUID = -4398802976318185828L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue
     private Long id;
 
     @Getter
@@ -44,11 +43,11 @@ public class JpaCountry extends AbstractAuditingEntity<Long> implements Serializ
     private String alpha3;
 
     @Getter
-    @Column(name = "visible")
+    @Column(name = "visible", columnDefinition = "TINYINT")
     private boolean visible;
 
     @Getter
-    @Column(name = "deleted")
+    @Column(name = "deleted", columnDefinition = "TINYINT")
     private boolean deleted;
 
     @Override
