@@ -1,18 +1,28 @@
 plugins {
-	id 'org.springframework.boot' version "${springBootPluginVersion}"
-	id 'io.spring.dependency-management' version "${springDependencyManagementPluginVersion}"
-	id 'net.researchgate.release' version "${releasePluginVersion}"
+	id 'org.springframework.boot' 			version "${springBootPluginVersion}"
+	id 'io.spring.dependency-management' 	version "${springDependencyManagementPluginVersion}"
+	id 'net.researchgate.release' 			version "${releasePluginVersion}"
+	id 'com.github.spotbugs' 				version "${spotBugsPluginVersion}"
+	id 'org.owasp.dependencycheck' 			version "${owaspDependencyCheckPluginVersion}"
+	id 'com.diffplug.spotless' 				version "${spotlessPluginVersion}"
 }
 
 apply from: "${rootProject.projectDir}/gradle/version.gradle"
 
+
 allprojects {
 	group 'rs.in.staleksit.template.goose'
 	version = rootProject.property("version")
+	repositories {
+		mavenCentral()
+	}
 }
 
 subprojects {
 	apply plugin: 'java'
+	apply plugin: 'java-library'
+	apply plugin: 'idea'
+	apply plugin: 'com.diffplug.spotless'
 	apply plugin: 'io.spring.dependency-management'
 	apply from: "${rootProject.projectDir}/gradle/jacoco.gradle"
 
@@ -70,8 +80,14 @@ subprojects {
 
 	tasks.withType(Javadoc).all { enabled = false }
 
+	spotless {
+		java {
+			targetExclude '**/generated/**'
+			googleJavaFormat()
+		}
+	}
 }
 
 wrapper {
-    gradleVersion = '8.7'
+    gradleVersion = '8.8'
 }
