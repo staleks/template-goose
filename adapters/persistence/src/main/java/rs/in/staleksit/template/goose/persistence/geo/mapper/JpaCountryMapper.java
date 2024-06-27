@@ -9,10 +9,9 @@ import rs.in.staleksit.template.goose.persistence.geo.model.JpaCountry;
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface JpaCountryMapper {
 
-    JpaCountryMapper COUNTRY_PERSISTENCE_MAPPER = Mappers.getMapper(JpaCountryMapper.class);
+  JpaCountryMapper COUNTRY_PERSISTENCE_MAPPER = Mappers.getMapper(JpaCountryMapper.class);
 
-    Country jpaEntityToDomain(final JpaCountry jpaCountry);
+  Country jpaEntityToDomain(final JpaCountry jpaCountry);
 
-    JpaCountry domainToJpaEntity(final Country country);
-
+  JpaCountry domainToJpaEntity(final Country country);
 }

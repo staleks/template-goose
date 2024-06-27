@@ -10,21 +10,20 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 @Configuration
 public class RestResourcesConfig {
 
-    @Bean
-    ResourceBundleMessageSource messageSource() {
-        final ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("i18n/messages");
-        messageSource.setDefaultEncoding("UTF-8");
-        messageSource.setUseCodeAsDefaultMessage(true);
-        return messageSource;
-    }
+  @Bean
+  ResourceBundleMessageSource messageSource() {
+    final ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+    messageSource.setBasename("i18n/messages");
+    messageSource.setDefaultEncoding("UTF-8");
+    messageSource.setUseCodeAsDefaultMessage(true);
+    return messageSource;
+  }
 
-    @Bean
-    @Primary
-    Validator localValidatorFactoryBean() {
-        final LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
-        validator.setValidationMessageSource(messageSource());
-        return validator;
-    }
-
+  @Bean
+  @Primary
+  Validator localValidatorFactoryBean() {
+    final LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+    validator.setValidationMessageSource(messageSource());
+    return validator;
+  }
 }

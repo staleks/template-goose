@@ -3,6 +3,9 @@ package rs.in.staleksit.template.goose.persistence;
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
+import java.io.Serial;
+import java.io.Serializable;
+import java.time.Instant;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
@@ -11,34 +14,28 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.io.Serial;
-import java.io.Serializable;
-import java.time.Instant;
-
 @Setter
 @Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class AbstractAuditingEntity<T> implements Serializable {
-    @Serial
-    private static final long serialVersionUID = -4398802976318185828L;
+  @Serial private static final long serialVersionUID = -4398802976318185828L;
 
-    public abstract T getId();
+  public abstract T getId();
 
-    @CreatedBy
-    @Column(name = "created_by", nullable = false, length = 50, updatable = false)
-    private String createdBy;
+  @CreatedBy
+  @Column(name = "created_by", nullable = false, length = 50, updatable = false)
+  private String createdBy;
 
-    @CreatedDate
-    @Column(name = "created_date", updatable = false)
-    private Instant createdDate = Instant.now();
+  @CreatedDate
+  @Column(name = "created_date", updatable = false)
+  private Instant createdDate = Instant.now();
 
-    @LastModifiedBy
-    @Column(name = "last_modified_by", length = 50)
-    private String lastModifiedBy;
+  @LastModifiedBy
+  @Column(name = "last_modified_by", length = 50)
+  private String lastModifiedBy;
 
-    @LastModifiedDate
-    @Column(name = "last_modified_date")
-    private Instant lastModifiedDate = Instant.now();
-
+  @LastModifiedDate
+  @Column(name = "last_modified_date")
+  private Instant lastModifiedDate = Instant.now();
 }

@@ -4,10 +4,7 @@ import rs.in.staleksit.template.goose.domain.model.geo.Country;
 import rs.in.staleksit.template.goose.service.paging.PagingRequest;
 import rs.in.staleksit.template.goose.service.paging.PagingResponse;
 
-import java.util.Set;
-
 public interface CountryService {
 
-    PagingResponse<Country> findAll(final PagingRequest pagingRequest);
-
+  PagingResponse<Country> findAll(final PagingRequest pagingRequest);
 }

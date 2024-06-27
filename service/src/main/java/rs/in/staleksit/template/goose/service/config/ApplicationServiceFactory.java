@@ -9,9 +9,8 @@ import rs.in.staleksit.template.goose.service.geo.CountryServiceImpl;
 @Configuration
 public class ApplicationServiceFactory {
 
-    @Bean
-    CountryService countryService(final CountryPersistencePort countryPersistencePort) {
-        return new CountryServiceImpl(countryPersistencePort);
-    }
-
+  @Bean
+  CountryService countryService(final CountryPersistencePort countryPersistencePort) {
+    return new CountryServiceImpl(countryPersistencePort);
+  }
 }

@@ -16,21 +16,19 @@ import rs.in.staleksit.template.goose.service.geo.CountryPersistencePort;
 @EnableJpaRepositories(basePackages = "rs.in.staleksit.template.goose.persistence.geo.repository")
 public class PersistenceConfig {
 
+  /**
+   * Translates {@link org.hibernate.HibernateException} instances to Spring's {@link
+   * org.springframework.dao.DataAccessException} hierarchy.
+   *
+   * @return {@link HibernateExceptionTranslator}
+   */
+  @Bean
+  public HibernateExceptionTranslator hibernateExceptionTranslator() {
+    return new HibernateExceptionTranslator();
+  }
 
-    /**
-     * Translates {@link org.hibernate.HibernateException} instances to
-     * Spring's {@link org.springframework.dao.DataAccessException} hierarchy.
-     *
-     * @return {@link HibernateExceptionTranslator}
-     */
-    @Bean
-    public HibernateExceptionTranslator hibernateExceptionTranslator() {
-        return new HibernateExceptionTranslator();
-    }
-
-    @Bean
-    CountryPersistencePort countryPersistencePort(final JpaCountryRepository countryRepository) {
-        return new CountryPersistenceAdapter(countryRepository);
-    }
-
+  @Bean
+  CountryPersistencePort countryPersistencePort(final JpaCountryRepository countryRepository) {
+    return new CountryPersistenceAdapter(countryRepository);
+  }
 }
