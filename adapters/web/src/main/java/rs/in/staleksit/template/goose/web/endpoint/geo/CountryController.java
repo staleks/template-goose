@@ -1,4 +1,4 @@
-package rs.in.staleksit.template.goose.web.endpoint;
+package rs.in.staleksit.template.goose.web.endpoint.geo;
 
 import static org.springframework.http.ResponseEntity.ok;
 import static rs.in.staleksit.template.goose.service.paging.PagingRequest.PARAM_PAGE;
@@ -22,7 +22,7 @@ import rs.in.staleksit.template.goose.service.paging.PagingResponse;
 @RequiredArgsConstructor
 public class CountryController {
 
-  private static final String COUNTRIES_ENDPOINT = "/api/v1/countries";
+  private static final String COUNTRIES_ENDPOINT = "/geo/v1/countries";
 
   private final CountryService countryService;
 

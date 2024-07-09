@@ -43,9 +43,11 @@ subprojects {
 		implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
 		implementation platform("org.springframework.boot:spring-boot-starter-parent:${springBootVersion}")
 
-		// lombok
+		//~ Lombok
 		compileOnly "org.projectlombok:lombok:${lombokVersion}"
 		annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+		//~ Spring Utilities
+		annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
 
 		implementation 'org.springframework:spring-context'
 		implementation 'io.micrometer:micrometer-registry-prometheus'

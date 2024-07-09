@@ -20,4 +20,7 @@ dependencies {
     implementation "com.mysql:mysql-connector-j:${mysqlConnectorVersion}"
     implementation "com.zaxxer:HikariCP:${hikariCPVersion}"
 
+    //~ DevTools
+    implementation files('libs/hypersistence-optimizer-2.6.3-jakarta.jar')
+
 }

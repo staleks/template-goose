@@ -5,7 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import rs.in.staleksit.template.goose.service.config.ApplicationServiceFactory;
 import rs.in.staleksit.template.goose.service.geo.CountryService;
-import rs.in.staleksit.template.goose.web.endpoint.CountryController;
+import rs.in.staleksit.template.goose.web.endpoint.IndexController;
+import rs.in.staleksit.template.goose.web.endpoint.geo.CountryController;
 
 @Configuration
 @Import({ApplicationServiceFactory.class})
@@ -15,4 +16,10 @@ public class RestControllerFactory {
   CountryController countryController(final CountryService countryService) {
     return new CountryController(countryService);
   }
+
+  @Bean
+  IndexController indexController() {
+    return new IndexController();
+  }
+
 }

@@ -20,4 +20,7 @@ dependencies {
     implementation "io.undertow:undertow-core:${undertowVersion}"
     implementation "io.undertow:undertow-core:${undertowVersion}"
 
+    //~ Presentation
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
 }
