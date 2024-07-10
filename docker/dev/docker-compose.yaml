@@ -1,7 +1,7 @@
 services:
   template-goose-db:
     container_name: template_goose_db
-    image: mysql:8.4.0
+    image: mysql:9
     ### command: ['mysqld', '--character-set-server=utf8', '--collation-server=utf8_unicode_ci']
     ports:
       - 20057:3306
