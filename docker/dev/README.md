@@ -26,7 +26,7 @@ $ docker-compose -f docker-compose.all.yaml up -d
 2. Do manual trigger on cURL
 
 ```
-$ curl http://localhost:8080/api/v1/countries
+$ curl http://localhost:8080/geo/v1/countries
 ```
 
 You should get response

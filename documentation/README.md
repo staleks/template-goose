@@ -34,3 +34,15 @@ onda nece praviti.
 
 Ovo treba istraziti, sta je default strategy a sta joj ovo za `GenerationType.IDENTITY` radi?
 
+
+## How to access application?
+
+0. Start MySQL in docker > dev > docker-compose.yaml
+
+1. Start TemplateGooseApplication [dev] mode
+   --spring.profiles.active=dev
+
+2. Go to: localhost:8080
+
+
+
