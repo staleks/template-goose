@@ -38,16 +38,21 @@ subprojects {
 		mavenCentral()
 	}
 
-	dependencies {
+	dependencyManagement {
 		// import BOM
-		implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
-		implementation platform("org.springframework.boot:spring-boot-starter-parent:${springBootVersion}")
+		imports {
+			mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+			mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+		}
+	}
 
+	dependencies {
 		//~ Lombok
 		compileOnly "org.projectlombok:lombok:${lombokVersion}"
 		annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
 		//~ Spring Utilities
-		annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
+		annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 		implementation 'org.springframework:spring-context'
 		implementation 'io.micrometer:micrometer-registry-prometheus'
